@@ -1,0 +1,29 @@
+
+## Démarrage rapide (local)
+
+### 1) Front borne (Bloc 1)
+Ouvrir avec un serveur statique :
+cd front-kiosk
+python -m http.server 5175
+# puis http://localhost:5175
+
+
+### 2) Back-office/API (Bloc 2) – Node/Express + MySQL
+cd back-office-api
+
+# Importer src/sql/schema.sql puis exécuter src/sql/seed.sql
+npm run dev
+# http://localhost:4000/login
+
+Identifiants par défaut :
+- email: **admin@wakdo.test**
+- mot de passe: **admin123**
+
+### 3) Framework React (Bloc 3)
+```bash
+cd framework-react-map
+npm run dev
+
+## Notes
+- Le front (Bloc 1) tente d’envoyer la commande vers `POST http://localhost:4000/api/orders`.
+  Si l’API n’est pas lancée, la borne affiche quand même le ticket (tolérance réseau).
